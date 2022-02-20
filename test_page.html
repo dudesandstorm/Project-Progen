@@ -13,8 +13,6 @@
       function onLoad(){
         canvas = document.getElementById("canvas");
         gl = canvas.getContext("experimental-webgl");
-        
-        
          
          // Create an empty buffer object to store vertex buffer
          var vertex_buffer = gl.createBuffer();
@@ -61,8 +59,9 @@
 
          //fragment shader source code
          var fragCode =
+	    'uniform float col;' +
             'void main(void) {' +
-               ' gl_FragColor = vec4(0.0, 0.0, 0.0, 0.1);' +
+               ' gl_FragColor = vec4(col, 0.0, 0.0, 0.1);' +
             '}';
             
          // Create fragment shader object
@@ -107,6 +106,9 @@
          // Enable the attribute
          gl.enableVertexAttribArray(coord);
 
+	      
+	      var location = gl.getUniformLocation(prg, "someArray");
+
          /*=========Drawing the triangle===========*/
 
          // Clear the canvas
@@ -127,6 +129,7 @@
 	var t;
       function animate(){
 	      t += 0.01;
+	      gl.uniform1f(location, t);
 	 /*=========Drawing the triangle===========*/
 
          // Clear the canvas
