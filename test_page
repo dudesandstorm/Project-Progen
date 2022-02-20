@@ -1,5 +1,12 @@
 <html>
-  <body>
+  <head>
+    <script type="text/javascript">
+      function onLoad(){
+        alert("hey");
+      }
+    </script>
+  </head>
+  <body onload="onLoad();">
     first page
   </body>
 </html>
