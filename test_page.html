@@ -10,6 +10,7 @@
          ];
          
          indices = [0,1,2];
+	    var location;
       function onLoad(){
         canvas = document.getElementById("canvas");
         gl = canvas.getContext("experimental-webgl");
@@ -107,7 +108,7 @@
          gl.enableVertexAttribArray(coord);
 
 	      
-	      var location = gl.getUniformLocation(prg, "someArray");
+	      location = gl.getUniformLocation(prg, "someArray");
 
          /*=========Drawing the triangle===========*/
 
