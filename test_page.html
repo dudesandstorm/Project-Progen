@@ -3,17 +3,18 @@
     <script type="text/javascript">
       var canvas;
       var gl;
-      function onLoad(){
-        canvas = document.getElementById("canvas");
-        gl = canvas.getContext("experimental-webgl");
-        
-        var vertices = [
+	    var vertices = [
             -0.5,0.5,0.0,
             -0.5,-0.5,0.0,
             0.5,-0.5,0.0, 
          ];
          
          indices = [0,1,2];
+      function onLoad(){
+        canvas = document.getElementById("canvas");
+        gl = canvas.getContext("experimental-webgl");
+        
+        
          
          // Create an empty buffer object to store vertex buffer
          var vertex_buffer = gl.createBuffer();
@@ -122,6 +123,28 @@
 
          // Draw the triangle
          gl.drawElements(gl.TRIANGLES, indices.length, gl.UNSIGNED_SHORT,0);
+      }
+	var t;
+      function animate(){
+	      t += 0.01;
+	 /*=========Drawing the triangle===========*/
+
+         // Clear the canvas
+         gl.clearColor(0.5, 0.5, 0.5, 0.9);
+
+         // Enable the depth test
+         gl.enable(gl.DEPTH_TEST);
+
+         // Clear the color buffer bit
+         gl.clear(gl.COLOR_BUFFER_BIT);
+
+         // Set the view port
+         gl.viewport(0,0,canvas.width,canvas.height);
+
+         // Draw the triangle
+         gl.drawElements(gl.TRIANGLES, indices.length, gl.UNSIGNED_SHORT,0);
+	      
+	      requestAnimationFrame(animate);
       }
     </script>
   </head>
