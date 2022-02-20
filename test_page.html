@@ -1,8 +1,10 @@
 <html>
   <head>
     <script type="text/javascript">
+      var canvas
       function onLoad(){
-        alert("hey");
+        canvas = document.getElementById("canvas");
+        gl = canvas.getContext("experimental-webgl");
       }
     </script>
   </head>
