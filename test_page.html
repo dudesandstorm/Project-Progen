@@ -1,21 +1,22 @@
 <html>
   <head>
     <script type="text/javascript">
-      var canvas;
-      var gl;
-	    var vertices = [
-            -0.5,0.5,0.0,
-            -0.5,-0.5,0.0,
-            0.5,-0.5,0.0, 
-         ];
-         
-         indices = [0,1,2];
-	    var location;
-      function onLoad(){
-        canvas = document.getElementById("canvas");
-        gl = canvas.getContext("experimental-webgl");
-         
-         // Create an empty buffer object to store vertex buffer
+var canvas;
+var gl;
+var vertices = [
+	-0.5,0.5,0.0,
+	-0.5,-0.5,0.0,
+	0.5,-0.5,0.0, 
+];
+
+var indices = [0,1,2];
+var location;
+
+function onLoad(){
+	canvas = document.getElementById("canvas");
+	gl = canvas.getContext("experimental-webgl");
+	
+	// Create an empty buffer object to store vertex buffer
          var vertex_buffer = gl.createBuffer();
 
          // Bind appropriate array buffer to it
@@ -108,7 +109,7 @@
          gl.enableVertexAttribArray(coord);
 
 	      
-	      location = gl.getUniformLocation(prg, "someArray");
+	      location = gl.getUniformLocation(shaderProgram, "col");
 
          /*=========Drawing the triangle===========*/
 
